@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block body %}
+<div class="cointainer">
+    <!-- <img src="http://source.unsplash.com/1200x400/?contact" class="d-block w-100 mx-0" alt=""> -->
+    <img src="/static/img/4.jpg" class="d-block w-100 mx-0" alt="">
+    <h1 class="text-center my-3">Contact Us</h1>
+</div>
+<div class="container">
+    <form class="row g-3" method="post" action="/contact">
+    {% csrf_token %}
+        <div class="col-6 py-2">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+        </div>
+        <div class="col-md-6 py-2">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="john@gmail.com" required>
+        </div>
+        <div class="col-md-6 py-2">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="phone" class="form-control" id="phone" name="phone" placeholder="+xx xxxxxxxxxx (x = 0-9)" required>
+        </div>
+        <div class="col-6 py-2">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required>
+        </div>
+        <div class="col-12 py-2">
+          <label for="desc" class="form-label">Contact for?</label>
+          <textarea class="form-control" name="desc" id="desc" cols="30" rows="3" placeholder="Type here..." required></textarea>
+        </div>
+        <div class="col-12 text-center py-2">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+</div>
+{% endblock body %}
